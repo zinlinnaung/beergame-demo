@@ -8,8 +8,6 @@ import Login from "./pages/Login.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Login />
-    {/* <Loading /> */}
-    {/* <Backdrop /> */}
+    <App/>
   </React.StrictMode>
 );

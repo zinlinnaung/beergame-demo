@@ -2,22 +2,14 @@ import React from "react";
 
 const GameSelect = () => {
   return (
-    <div className="w-full flex items-center m-auto ">
-      <div className="m-auto flex flex-col items-center space-y-10">
-        <div>
-          <img src="/assets/spin.png" alt="" />
-        </div>
-        <div>
-          <img src="/assets/spintext.png" alt="" />
-        </div>
+    <div className="w-full flex justify-evenly items-center px-10 gap-x-10">
+      <div className="flex flex-col items-center space-y-10">
+        <img src="/assets/spin.png" alt="spin" />
+        <img src="/assets/spintext.png" alt="spin text" />
       </div>
-      <div className="m-auto flex flex-col items-center space-y-10">
-        <div>
-          <img src="/assets/can.png" alt="" />
-        </div>
-        <div className="">
-          <img src="/assets/cantext.png" alt="" />
-        </div>
+      <div className="flex flex-col items-center space-y-10">
+        <img src="/assets/can.png" alt="can" />
+        <img src="/assets/cantext.png" alt="can text" />
       </div>
     </div>
   );
