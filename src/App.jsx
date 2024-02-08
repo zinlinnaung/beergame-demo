@@ -27,6 +27,11 @@ function App() {
         <Router />
         {/* <LoginForm /> */}
       </div>
+      <img
+        src="/assets/karawake.png"
+        alt="karawake"
+        className="absolute right-0 bottom-0"
+      />
     </main>
   );
 }

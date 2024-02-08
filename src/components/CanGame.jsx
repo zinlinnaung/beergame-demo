@@ -6,6 +6,7 @@ const CanGame = () => {
     1: "white",
     2: "white",
     3: "white",
+    4: "white",
   });
   const [isBottleSelected, setIsBottleSelected] = useState(false);
 
@@ -42,37 +43,39 @@ const CanGame = () => {
   const getBottleStyle = (bottle) => ({
     ...bottleStyle,
     transform: selectedBottle === bottle ? "scale(2)" : "scale(1)",
-    width: selectedBottle === bottle ? "40%" : "15%",
+    width: selectedBottle === bottle ? "40%" : "50%",
+    margin: "0 auto",
   });
 
   return (
     <div className="w-[100%]" style={bottleContainerStyles}>
-      {[1, 2, 3].map((bottle) =>
+      {[1, 2, 3, 4].map((bottle) =>
         selectedBottle === 0 || selectedBottle === bottle ? (
           <div key={bottle} style={{ position: "relative" }}>
             <div
               style={getBottleStyle(bottle)}
               onClick={() => handleClick(bottle)}
             >
-              <img src="/assets/myanmarbeer.png" alt="" />
+              <img src="/assets/myanmarbeer.png" alt="" className="z-10 relative" />
               Bottle {bottle}
+              {isBottleSelected && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "-18px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    backgroundColor: bottleCapColors[bottle],
+                    width: "30%",
+                    borderRadius: "50%",
+                    zIndex: 1
+                  }}
+                  onClick={() => handleCapClick(bottle)}
+                >
+                  <img src="/assets/pinlid.png" alt="" />
+                </div>
+              )}
             </div>
-            {isBottleSelected && (
-              <div
-                style={{
-                  position: "absolute",
-                  top: "0.1px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  backgroundColor: bottleCapColors[bottle],
-                  width: "30%",
-                  borderRadius: "50%",
-                }}
-                onClick={() => handleCapClick(bottle)}
-              >
-                <img src="/assets/pinlid.png" alt="" />
-              </div>
-            )}
           </div>
         ) : null
       )}
