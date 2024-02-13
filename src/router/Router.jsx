@@ -1,14 +1,14 @@
 import {
   Navigate,
   Route,
-  RouterProvider,
+  // RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
 // import Company from "@/pages/company/Company";
 // import Career from "@/pages/company/Career";
 // import OurStory from "@/pages/company/OurStory";
-import LoginForm from "../components/LoginForm";
+// import LoginForm from "../components/LoginForm";
 import GameSelect from "../components/GameSelect";
 import UserData from "../components/UserData";
 // import SpinGame from "../components/SpinGame";
@@ -17,7 +17,8 @@ import SpinWheel from "../components/SpinWheel";
 // import Backdrop from "../pages/Backdrop";
 // import Login from "../pages/Login";
 import PrivateRoute from "../hocs/PrivateRoute";
-import Backdrop from "../pages/Backdrop";
+import CanGame from "../components/CanGame";
+// import Backdrop from "../pages/Backdrop";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,9 +31,9 @@ const router = createBrowserRouter(
     //   {/* <Route path="spin-game" element={<SpinWheel />} /> */}
     // </Route>
 
-    <Route path="/" element={<Backdrop />}>
+    <Route path="/" element={<CanGame />}>
       {/* <Route index element={<Backdrop />} /> */}
-      <Route path="/login" element={<LoginForm />} />
+      <Route path="/login" element={<SpinWheel />} />
       <Route path="/data" element={<PrivateRoute component={UserData} />} />
       <Route path="/spin" element={<PrivateRoute component={SpinWheel} />} />
       <Route
@@ -44,8 +45,4 @@ const router = createBrowserRouter(
   )
 );
 
-const Router = () => {
-  return <RouterProvider router={router} />;
-};
-
-export default Router;
+export default router;

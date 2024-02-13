@@ -1,11 +1,11 @@
-import * as React from "react"
-import * as ToastPrimitives from "@radix-ui/react-toast"
+import * as React from "react";
+import * as ToastPrimitives from "@radix-ui/react-toast";
 import { cva } from "class-variance-authority";
-import { X } from "lucide-react"
+import { X } from "lucide-react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "../../lib/utils";
 
-const ToastProvider = ToastPrimitives.Provider
+const ToastProvider = ToastPrimitives.Provider;
 
 const ToastViewport = React.forwardRef(({ className, ...props }, ref) => (
   <ToastPrimitives.Viewport
@@ -80,11 +80,23 @@ const ToastTitle = React.forwardRef(({ className, ...props }, ref) => (
     {...props}
   />
 ));
-ToastTitle.displayName = ToastPrimitives.Title.displayName
+ToastTitle.displayName = ToastPrimitives.Title.displayName;
 
 const ToastDescription = React.forwardRef(({ className, ...props }, ref) => (
-  <ToastPrimitives.Description ref={ref} className={cn("text-sm opacity-90", className)} {...props} />
-))
-ToastDescription.displayName = ToastPrimitives.Description.displayName
+  <ToastPrimitives.Description
+    ref={ref}
+    className={cn("text-sm opacity-90", className)}
+    {...props}
+  />
+));
+ToastDescription.displayName = ToastPrimitives.Description.displayName;
 
-export { ToastProvider, ToastViewport, Toast, ToastTitle, ToastDescription, ToastClose, ToastAction };
+export {
+  ToastProvider,
+  ToastViewport,
+  Toast,
+  ToastTitle,
+  ToastDescription,
+  ToastClose,
+  ToastAction,
+};
