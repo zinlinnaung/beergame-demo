@@ -1,3 +1,138 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#main {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  /* height: auto; */
+  border: '3px solid blue'
+}
+#div_pointer {
+  margin: auto;
+  position: relative;
+  width: 300px;
+  height: 90px;
+  z-index: 100;
+}
+#pointer {
+  margin: auto;
+  position: absolute;
+  bottom: -15px;
+  left: 135px;
+  width: 30px;
+  height: 28px;
+  /* background-image: url(https://i.imgur.com/sDgSVZg.png); */
+  clip-path: polygon(0% 50%, 100% 0, 100% 100%);
+  transform: rotate(-90deg);
+  background-color: #333;
+  background-image: url();
+}
+
+#wheel {
+  margin: auto;
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+  border: 3px solid yellow;
+  background-size: contain;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all 5s ease-in-out;
+}
+
+#spin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-120deg);
+  width: 5rem;
+  height: 5rem;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.shape-with-border::after {
+  content: "";
+  position: absolute;
+  top: -2px; /* Adjust this value to control border thickness */
+  bottom: -2px; /* Adjust this value to control border thickness */
+  left: -2px; /* Adjust this value to control border thickness */
+  right: -2px; /* Adjust this value to control border thickness */
+  -webkit-clip-path: polygon(50% 50%, 100% 0, 100% 100%);
+  clip-path: polygon(50% 50%, 100% 0, 100% 100%);
+  background: none;
+  /* border: 2px solid #000; */
+}
+
+.prize-name {
+  transform: rotate(60deg) translate(5px, -20px);
+  color: #fff;
+  font-size: 10px;
+  width: 50%;
+}
+
+@media only screen and (min-width: 768px) {
+  #spin {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  #wheel {
+    width: 25rem;
+    height: 25rem;
+  }
+
+  .prize-name {
+    transform: rotate(60deg) translate(20px, -40px);
+    width: 80%;
+    font-size: medium;
+  }
+}
+
+.sc-gsTCUz {
+  transform: rotate(-45deg) !important;
+  margin-top: 5rem;
+  margin: 5rem auto;
+}
+
+
+.inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 5rem;
+}
+
+.wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+section {
+  /* display: flex; */
+  animation: swipe var(--speed) linear infinite backwards;
+}
+
+.item {
+  margin-bottom: 0.5rem;
+}
+
+@keyframes swipe {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}

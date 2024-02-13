@@ -15,65 +15,111 @@ const SpinWheel = () => {
 
   const [customer] = useRecoilState(customerAtom);
   const [winningItem, setWinningItem] = useRecoilState(WiningAtom);
-  const [winningItems, setWinningItems] = useState([]);
   const [degreeToSpin, setDegreeToSpin] = useState(0);
-
-  useQuery(
-    "prizes_list",
-    async () => {
-      const res = await api.get("/spin/prizes");
-      return res.data;
+  const [winningItems, setWinningItems] = useState([
+    {
+      id: 1,
+      name: "Beer",
+      photo: "mug.png",
+      quantity: 1,
+      winningRatio: 0.5,
+      winningMessage: "IPhone ",
+      isActive: true,
     },
     {
-      onSuccess: (data) => {
-        setWinningItems(data);
-      },
-    }
-  );
-
-  useQuery(
-    "check_spin",
-    async () => {
-      const res = await api.get(`/spin/check?customer_id=${customer?.id}`);
-      return res.data;
+      id: 2,
+      name: "Bell Pen",
+      photo: "pen.png",
+      quantity: 1,
+      winningRatio: 0.2,
+      winningMessage: "Airpod",
+      isActive: true,
     },
     {
-      onSuccess: (data) => {
-        if (!data) {
-          toast({ title: "ကံစမ်းရန် အကြိမ်ရေကုန်သွားပါပြီ..." });
-          setTimeout(() => navigate("/data"), 3000);
-        }
-      },
-    }
-  );
-
-  const { mutate } = useMutation(
-    async () => {
-      return await api.post(`/spin`, {
-        customer_id: customer.id,
-        prize_id: winningItem.id,
-      });
+      id: 3,
+      name: "Trifold",
+      photo: "purse.png",
+      quantity: 1,
+      winningRatio: 0.16,
+      winningMessage: "iWatch",
+      isActive: true,
     },
     {
-      onSuccess: (res) => {
-        if (res.status === 200) {
-          navigate("/win");
-        }
-      },
-    }
-  );
+      id: 4,
+      name: "key chain",
+      photo: "key-chain.png",
+      quantity: 1,
+      winningRatio: 0.7,
+      winningMessage: "Capital Gift Voucher",
+      isActive: true,
+    },
+    {
+      id: 5,
+      name: "T - Shirt",
+      photo: "shirt.png",
+      quantity: 0,
+      winningRatio: 0.7,
+      winningMessage: "G & G Gift Voucher",
+      isActive: true,
+    },
+  ]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (winningItem) {
-        mutate();
-      }
-    }, 6000);
-  }, [winningItem]);
+  // useQuery(
+  //   "prizes_list",
+  //   async () => {
+  //     const res = await api.get("/spin/prizes");
+  //     return res.data;
+  //   },
+  //   {
+  //     onSuccess: (data) => {
+  //       setWinningItems(data);
+  //     },
+  //   }
+  // );
 
-  useEffect(() => {
-    if (!customer) navigate("/");
-  }, [customer]);
+  // useQuery(
+  //   "check_spin",
+  //   async () => {
+  //     const res = await api.get(`/spin/check?customer_id=${customer?.id}`);
+  //     return res.data;
+  //   },
+  //   {
+  //     onSuccess: (data) => {
+  //       if (!data) {
+  //         toast({ title: "ကံစမ်းရန် အကြိမ်ရေကုန်သွားပါပြီ..." });
+  //         setTimeout(() => navigate("/data"), 3000);
+  //       }
+  //     },
+  //   }
+  // );
+
+  // const { mutate } = useMutation(
+  //   async () => {
+  //     return await api.post(`/spin`, {
+  //       customer_id: customer.id,
+  //       prize_id: winningItem.id,
+  //     });
+  //   },
+  //   {
+  //     onSuccess: (res) => {
+  //       if (res.status === 200) {
+  //         navigate("/win");
+  //       }
+  //     },
+  //   }
+  // );
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     if (winningItem) {
+  //       mutate();
+  //     }
+  //   }, 6000);
+  // }, [winningItem]);
+
+  // useEffect(() => {
+  //   if (!customer) navigate("/");
+  // }, [customer]);
 
   const spinWheel = () => {
     queryClient.invalidateQueries("check_spin");
@@ -183,7 +229,7 @@ const SpinWheel = () => {
 
             <div id="spin" onClick={spinWheel}>
               <img
-                src="spin-now.png"
+                src="/assets/spin-now.png"
                 alt="Spin Button"
                 style={{ width: "100%" }}
               />

@@ -1,12 +1,7 @@
-// import { useState } from "react";
-
 import "./App.css";
-// import GameSelect from "./components/GameSelect";
-// import LoginForm from "./components/LoginForm";
-// import Router from "./router/Router";
+import "./index.css";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { RouterProvider } from "react-router-dom";
-import router from "./router/Router";
+import AppRouter from "./router/Router";
 const queryClient = new QueryClient();
 function App() {
   return (
@@ -27,9 +22,7 @@ function App() {
           />
         </div>
         <div className="flex flex-col md:flex-row items-center login w-full h-full justify-center">
-          {/* <GameSelect /> */}
-          <RouterProvider router={router} />
-          {/* <LoginForm /> */}
+          <AppRouter />
         </div>
         <img
           src="/assets/karawake.png"

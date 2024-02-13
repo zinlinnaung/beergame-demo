@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Loading = () => {
   return (
     <main className="flex items-center justify-center backdrop h-screen ">

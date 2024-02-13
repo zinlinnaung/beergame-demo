@@ -1,5 +1,3 @@
-import React from "react";
-
 const GameSelect = () => {
   return (
     <div className="w-full flex justify-evenly items-center px-10 gap-x-10">
