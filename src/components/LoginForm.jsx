@@ -1,8 +1,10 @@
 import { useState } from "react";
 // import axios from "axios";
 import { useMutation } from "react-query";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState({
     select1: "",
     select2: "",
@@ -32,8 +34,9 @@ const LoginForm = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    mutate(data);
+    navigate("/game-select");
+    // e.preventDefault();
+    // mutate(data);
   };
 
   return (
@@ -111,6 +114,7 @@ const LoginForm = () => {
           <button
             type="submit"
             className="bg-[#036738] border-2 text-white py-2 px-4 rounded-lg w-28 h-14 ml-auto"
+            // onClick={handleSubmit}
           >
             Login
           </button>

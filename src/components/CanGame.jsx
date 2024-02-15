@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
+
+import { useState } from "react";
 
 const CanGame = () => {
   const [selectedBottle, setSelectedBottle] = useState(0);
@@ -16,14 +18,14 @@ const CanGame = () => {
     setIsBottleSelected(true);
   };
 
-  const handleCapClick = (bottle) => {
-    if (isBottleSelected) {
-      setBottleCapColors((prevState) => ({
-        ...prevState,
-        [bottle]: prevState[bottle] === "white" ? "red" : "white",
-      }));
-    }
-  };
+  // const handleCapClick = (bottle) => {
+  //   if (isBottleSelected) {
+  //     setBottleCapColors((prevState) => ({
+  //       ...prevState,
+  //       [bottle]: prevState[bottle] === "white" ? "red" : "white",
+  //     }));
+  //   }
+  // };
 
   const bottleContainerStyles = {
     display: "flex",
@@ -76,7 +78,7 @@ const CanGame = () => {
                     style={{
                       // scale: isClicked ? 1.5 : 1,
                       transform: isClicked
-                        ? "scale(1.5) translateX(-30%)"
+                        ? "scale(2) translateX(-30%)"
                         : "scale(1) translateX(-50%)",
                     }}
                     onClick={() => setIsClicked(true)}
@@ -87,7 +89,7 @@ const CanGame = () => {
                     style={{
                       opacity: isClicked ? 1 : 0,
                     }}
-                    className="absolute top-3 left-1/2 -translate-x-1/2 flex items-center justify-center bg-white w-14 h-20 rounded-full transition-all duration-500 delay-200"
+                    className="absolute top-3 left-1/2 -translate-x-1/2 flex items-center justify-center bg-white w-24 h-28 rounded-full transition-all duration-500 delay-200"
                   >
                     <p className="text-xs">Thank you</p>
                   </div>

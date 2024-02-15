@@ -20,7 +20,7 @@ const SpinWheel = () => {
     {
       id: 1,
       name: "Beer",
-      photo: "mug.png",
+      photo: "/assets/earphone.jpg",
       quantity: 1,
       winningRatio: 0.5,
       winningMessage: "IPhone ",
@@ -29,7 +29,7 @@ const SpinWheel = () => {
     {
       id: 2,
       name: "Bell Pen",
-      photo: "pen.png",
+      photo: "/assets/iphone.jpg",
       quantity: 1,
       winningRatio: 0.2,
       winningMessage: "Airpod",
@@ -38,7 +38,7 @@ const SpinWheel = () => {
     {
       id: 3,
       name: "Trifold",
-      photo: "purse.png",
+      photo: "/assets/watch.jpg",
       quantity: 1,
       winningRatio: 0.16,
       winningMessage: "iWatch",
@@ -47,7 +47,7 @@ const SpinWheel = () => {
     {
       id: 4,
       name: "key chain",
-      photo: "key-chain.png",
+      photo: "/assets/vocture.jpg",
       quantity: 1,
       winningRatio: 0.7,
       winningMessage: "Capital Gift Voucher",
@@ -56,13 +56,15 @@ const SpinWheel = () => {
     {
       id: 5,
       name: "T - Shirt",
-      photo: "shirt.png",
+      photo: "/assets/thankyou.jpg",
       quantity: 0,
       winningRatio: 0.7,
       winningMessage: "G & G Gift Voucher",
       isActive: true,
     },
   ]);
+
+  console.log(winningItem);
 
   // useQuery(
   //   "prizes_list",
@@ -211,9 +213,10 @@ const SpinWheel = () => {
                   }deg)`,
                 }}
               >
+                {console.log(item.photo)}
                 <img
-                  src={item?.prize?.img_url}
-                  alt=""
+                  src={item.photo}
+                  alt="sidfidsi"
                   style={{
                     position: "absolute",
                     left: "40%",
