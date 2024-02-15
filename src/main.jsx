@@ -7,6 +7,7 @@ import "./index.css";
 // import Login from "./pages/Login.jsx";
 import { RecoilRoot } from "recoil";
 import { Toaster } from "./components/ui/toaster.jsx";
+import FormProvider from "./context/FormContext.jsx";
 // import { QueryClientProvider } from "react-query";
 // import { Toaster } from "./components/ui/toaster.jsx";
 
@@ -14,7 +15,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RecoilRoot>
       <Toaster>
-        <App />
+        <FormProvider>
+          <App />
+        </FormProvider>
       </Toaster>
     </RecoilRoot>
   </React.StrictMode>

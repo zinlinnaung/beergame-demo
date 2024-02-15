@@ -1,25 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { FormContext } from "../context/FormContext";
 
 const UserData = () => {
+  const { nextRoute } = useLocation().state;
+  const navigate = useNavigate();
+  const { data, setData } = useContext(FormContext);
+
+  const handleOnChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
   return (
     <div className="w-[46%]  mx-auto ">
-      <form action="/submit" method="post" className="flex flex-col space-y-16">
+      <form
+        onSubmit={() => navigate(nextRoute)}
+        method="post"
+        className="flex flex-col space-y-16"
+      >
         <div className="flex flex-col space-y-4">
           <input
             type="text"
-            id="text1"
-            name="text1"
+            id="name"
+            name="name"
             placeholder="Name"
             required
+            onChange={handleOnChange}
             className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
           />
 
           <input
             type="text"
-            id="text1"
-            name="text1"
+            id="phone"
+            name="phone"
             placeholder="Phone Number"
             required
+            onChange={handleOnChange}
             className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
           />
 

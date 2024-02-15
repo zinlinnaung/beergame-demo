@@ -5,27 +5,12 @@ import { useState } from "react";
 const CanGame = () => {
   const [selectedBottle, setSelectedBottle] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
-  // const [bottleCapColors, setBottleCapColors] = useState({
-  //   1: "white",
-  //   2: "white",
-  //   3: "white",
-  //   4: "white",
-  // });
   const [isBottleSelected, setIsBottleSelected] = useState(false);
 
   const handleClick = (bottle) => {
     setSelectedBottle(bottle);
     setIsBottleSelected(true);
   };
-
-  // const handleCapClick = (bottle) => {
-  //   if (isBottleSelected) {
-  //     setBottleCapColors((prevState) => ({
-  //       ...prevState,
-  //       [bottle]: prevState[bottle] === "white" ? "red" : "white",
-  //     }));
-  //   }
-  // };
 
   const bottleContainerStyles = {
     display: "flex",

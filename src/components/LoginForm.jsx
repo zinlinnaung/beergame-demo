@@ -1,17 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 // import axios from "axios";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
+import { FormContext } from "../context/FormContext";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const [data, setData] = useState({
-    select1: "",
-    select2: "",
-    select3: "",
-    select4: "",
-    text1: "",
-  });
+  // const [data, setData] = useState({
+  //   select1: "",
+  //   select2: "",
+  //   select3: "",
+  //   select4: "",
+  //   saleId: "",
+  //   password: "",
+  // });
+  const { data, setData } = useContext(FormContext);
 
   const { mutate } = useMutation(
     (data) => {
@@ -50,11 +53,15 @@ const LoginForm = () => {
             onChange={handleOnChange}
             className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg outline-none text-white"
           >
-            <option value="" disabled>
+            <option value="" className="bg-gray-400">
               Select Option 1
             </option>
-            <option value="Option 1">Option 1</option>
-            <option value="Option 2">Option 2</option>
+            <option value="Option 1" className="bg-gray-400">
+              Option 1
+            </option>
+            <option value="Option 2" className="bg-gray-400">
+              Option 2
+            </option>
           </select>
 
           <select
@@ -64,49 +71,53 @@ const LoginForm = () => {
             onChange={handleOnChange}
             className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
           >
-            <option value="" disabled>
+            <option value="" className="bg-gray-400">
               Select Option 2
             </option>
-            <option value="Option A">Option A</option>
-            <option value="Option B">Option B</option>
+            <option value="Option A" className="bg-gray-400">
+              Option A
+            </option>
+            <option value="Option B" className="bg-gray-400">
+              Option B
+            </option>
           </select>
 
           <select
             id="select3"
             name="select3"
             value={data.select3}
-            onChange={handleOnChange}
+            onChange={(e) => setData({ ...data, outletId: e.target.value })}
             className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
           >
-            <option value="" disabled>
+            <option value="Option A" className="bg-gray-400">
               Select Option 3
             </option>
-            <option value="Option X">Option X</option>
-            <option value="Option Y">Option Y</option>
+            <option value="Option X" className="bg-gray-400">
+              Option X
+            </option>
+            <option value="Option Y" className="bg-gray-400">
+              Option Y
+            </option>
           </select>
         </div>
         <div className="flex flex-col space-y-4">
-          <select
-            id="select4"
-            name="select4"
-            value={data.select4}
-            onChange={handleOnChange}
-            className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
-          >
-            <option value="" disabled>
-              Select Option 4
-            </option>
-            <option value="Option P">Option P</option>
-            <option value="Option Q">Option Q</option>
-          </select>
-
           <input
             type="text"
-            id="text1"
-            name="text1"
-            value={data.text1}
+            id="userId"
+            name="userId"
+            value={data.userId}
             onChange={handleOnChange}
-            placeholder="Enter text here"
+            placeholder="Enter Sale Person ID Here"
+            required
+            className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
+          />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={data.password}
+            // onChange={handleOnChange}
+            placeholder="Enter Password Here"
             required
             className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
           />

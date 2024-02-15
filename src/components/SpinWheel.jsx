@@ -1,17 +1,19 @@
 import useAxios from "../hooks/useAxios";
 import customerAtom from "../recoil/spin/customer.atom";
 import WiningAtom from "../recoil/spin/wining.atom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { useToast } from "./ui/use-toast";
+import { FormContext } from "../context/FormContext";
 
 const SpinWheel = () => {
   const navigate = useNavigate();
   const api = useAxios({ toast: true });
   const { toast } = useToast();
   const queryClient = useQueryClient();
+  const { data, setData } = useContext(FormContext);
 
   const [customer] = useRecoilState(customerAtom);
   const [winningItem, setWinningItem] = useRecoilState(WiningAtom);
@@ -64,65 +66,6 @@ const SpinWheel = () => {
     },
   ]);
 
-  console.log(winningItem);
-
-  // useQuery(
-  //   "prizes_list",
-  //   async () => {
-  //     const res = await api.get("/spin/prizes");
-  //     return res.data;
-  //   },
-  //   {
-  //     onSuccess: (data) => {
-  //       setWinningItems(data);
-  //     },
-  //   }
-  // );
-
-  // useQuery(
-  //   "check_spin",
-  //   async () => {
-  //     const res = await api.get(`/spin/check?customer_id=${customer?.id}`);
-  //     return res.data;
-  //   },
-  //   {
-  //     onSuccess: (data) => {
-  //       if (!data) {
-  //         toast({ title: "ကံစမ်းရန် အကြိမ်ရေကုန်သွားပါပြီ..." });
-  //         setTimeout(() => navigate("/data"), 3000);
-  //       }
-  //     },
-  //   }
-  // );
-
-  // const { mutate } = useMutation(
-  //   async () => {
-  //     return await api.post(`/spin`, {
-  //       customer_id: customer.id,
-  //       prize_id: winningItem.id,
-  //     });
-  //   },
-  //   {
-  //     onSuccess: (res) => {
-  //       if (res.status === 200) {
-  //         navigate("/win");
-  //       }
-  //     },
-  //   }
-  // );
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     if (winningItem) {
-  //       mutate();
-  //     }
-  //   }, 6000);
-  // }, [winningItem]);
-
-  // useEffect(() => {
-  //   if (!customer) navigate("/");
-  // }, [customer]);
-
   const spinWheel = () => {
     queryClient.invalidateQueries("check_spin");
     setDegreeToSpin(3600);
@@ -164,6 +107,8 @@ const SpinWheel = () => {
         setWinningItem(range.selectedItem);
       }
     }
+
+    setData({ ...data, productId: "1" });
   };
 
   const sliceColors = [
@@ -179,6 +124,12 @@ const SpinWheel = () => {
     "#9B59B6",
     "#3498DB",
   ];
+
+  // console.log(winningItem);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   return (
     <div id="main">
@@ -213,7 +164,7 @@ const SpinWheel = () => {
                   }deg)`,
                 }}
               >
-                {console.log(item.photo)}
+                {/* {console.log(item.photo)} */}
                 <img
                   src={item.photo}
                   alt="sidfidsi"
