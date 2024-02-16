@@ -22,7 +22,7 @@ const AppRouter = () => {
           <Route path="data" element={<UserData />} />
           <Route path="can" element={<CanGame />} />
           <Route path="spin" element={<SpinWheel />} />
-          <Route path="*" element={<Navigate to="game-select" replace />} />
+          <Route path="*" element={<Navigate to="login" replace />} />
         </Route>
       </Routes>
     </Router>
