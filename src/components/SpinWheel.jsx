@@ -22,7 +22,7 @@ const SpinWheel = () => {
   const [winningItems, setWinningItems] = useState([
     {
       id: 1,
-      name: "Beer",
+      name: "Earphone",
       photo: "/assets/earphone.jpg",
       quantity: 1,
       winningRatio: 0.5,
@@ -31,7 +31,7 @@ const SpinWheel = () => {
     },
     {
       id: 2,
-      name: "Bell Pen",
+      name: "Airpod",
       photo: "/assets/iphone.jpg",
       quantity: 1,
       winningRatio: 0.2,
@@ -40,7 +40,7 @@ const SpinWheel = () => {
     },
     {
       id: 3,
-      name: "Trifold",
+      name: "iwatch",
       photo: "/assets/watch.jpg",
       quantity: 1,
       winningRatio: 0.16,
@@ -49,7 +49,7 @@ const SpinWheel = () => {
     },
     {
       id: 4,
-      name: "key chain",
+      name: "vocture",
       photo: "/assets/vocture.jpg",
       quantity: 1,
       winningRatio: 0.7,
@@ -58,7 +58,7 @@ const SpinWheel = () => {
     },
     {
       id: 5,
-      name: "T - Shirt",
+      name: "thankyou",
       photo: "/assets/thankyou.jpg",
       quantity: 1, // Corrected quantity from 0 to 1
       winningRatio: 0.7,
