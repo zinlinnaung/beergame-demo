@@ -87,7 +87,7 @@ const CanGame = () => {
             <Link
               to="/select-game"
               className={`capitalize flex gap-x-2 text-white underline translate-y-40 ${
-                isBottleSelected ? "flex" : "none"
+                isBottleSelected ? "flex" : "hidden"
               }`}
             >
               <ArrowLeftIcon /> Back to game selection
