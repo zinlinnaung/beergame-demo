@@ -49,7 +49,7 @@ const SpinWheel = () => {
     },
     {
       id: 4,
-      name: "vocture",
+      name: "Voucher",
       photo: "/assets/vocture.jpg",
       quantity: 1,
       winningRatio: 0.7,
