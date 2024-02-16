@@ -3,9 +3,17 @@ import { useContext, useState } from "react";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { FormContext } from "../context/FormContext";
+import authAtom from "../recoil/auth/auth.atom";
+import axios from "axios";
+import { useSetRecoilState } from "recoil";
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const setAuth = useSetRecoilState(authAtom);
+  const [dataa, setDataa] = useState({
+    sale_person_id: "",
+    password: "",
+  });
   // const [data, setData] = useState({
   //   select1: "",
   //   select2: "",
@@ -15,15 +23,27 @@ const LoginForm = () => {
   //   password: "",
   // });
   const { data, setData } = useContext(FormContext);
+  console.log(data);
 
   const { mutate } = useMutation(
     (data) => {
-      // Make API call here using Axios or fetch
-      console.log("Form data submitted:", data);
+      return axios.post(
+        `${import.meta.env.VITE_APP_BACKEND_URL}/api/authentication/login`,
+        data,
+        {
+          validateStatus: function (status) {
+            return status <= 500;
+          },
+        }
+      );
     },
     {
-      onSuccess: () => {
-        // Handle success if needed
+      onSuccess: (res) => {
+        if (res.status === 200) {
+          setAuth(res.data);
+          localStorage.setItem("myanmarbeer-auth", JSON.stringify(res.data));
+          navigate("/game-select");
+        }
       },
       onError: (error) => {
         // Handle error if needed
@@ -34,12 +54,13 @@ const LoginForm = () => {
 
   const handleOnChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
+    setDataa({ ...dataa, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
-    navigate("/game-select");
-    // e.preventDefault();
-    // mutate(data);
+    // navigate("/game-select");
+    e.preventDefault();
+    mutate(dataa);
   };
 
   return (
@@ -103,9 +124,9 @@ const LoginForm = () => {
         <div className="flex flex-col space-y-4">
           <input
             type="text"
-            id="userId"
-            name="userId"
-            value={data.userId}
+            id="sale_person_id"
+            name="sale_person_id"
+            value={dataa.sale_person_id}
             onChange={handleOnChange}
             placeholder="Enter Sale Person ID Here"
             required
@@ -115,8 +136,8 @@ const LoginForm = () => {
             type="password"
             id="password"
             name="password"
-            value={data.password}
-            // onChange={handleOnChange}
+            value={dataa.password}
+            onChange={handleOnChange}
             placeholder="Enter Password Here"
             required
             className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"

@@ -59,7 +59,7 @@ const SpinWheel = () => {
       id: 5,
       name: "T - Shirt",
       photo: "/assets/thankyou.jpg",
-      quantity: 0,
+      quantity: 1, // Corrected quantity from 0 to 1
       winningRatio: 0.7,
       winningMessage: "G & G Gift Voucher",
       isActive: true,
@@ -71,15 +71,15 @@ const SpinWheel = () => {
     setDegreeToSpin(3600);
 
     // Filter out prizes with quantity 0
-    const availablePrizes = winningItems.filter((obj) => obj.balance > 0);
+    const availablePrizes = winningItems.filter((obj) => obj.quantity > 0); // Corrected property name from balance to quantity
     availablePrizes.sort(
       (firstItem, secondItem) =>
-        firstItem.prize.win_ratio - secondItem.prize.win_ratio
+        firstItem.winningRatio - secondItem.winningRatio // Corrected property name from prize.win_ratio to winningRatio
     );
 
     // Calculate total ratio of available prizes
     const totalRatio = availablePrizes.reduce(
-      (acc, current) => acc + current.prize.win_ratio,
+      (acc, current) => acc + current.winningRatio, // Corrected property name from prize.win_ratio to winningRatio
       0
     );
 
@@ -88,7 +88,7 @@ const SpinWheel = () => {
     let cumulativeRatio = 0;
     for (const selectedItem of availablePrizes) {
       const rangeStart = cumulativeRatio;
-      cumulativeRatio += selectedItem.prize.win_ratio;
+      cumulativeRatio += selectedItem.winningRatio; // Corrected property name from prize.win_ratio to winningRatio
       const rangeEnd = cumulativeRatio;
       ranges.push({ selectedItem, rangeStart, rangeEnd });
     }
@@ -105,10 +105,11 @@ const SpinWheel = () => {
           setWinningItems(newArray);
         }, 1000);
         setWinningItem(range.selectedItem);
+        console.log(range.selectedItem);
       }
     }
-
-    setData({ ...data, productId: "1" });
+    // console.log(winningItem);
+    setData({ ...data, productId: winningItem.id });
   };
 
   const sliceColors = [

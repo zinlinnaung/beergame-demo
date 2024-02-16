@@ -28,7 +28,7 @@ const useAxios = (props) => {
     if (!isExpired) return req;
 
     const res = await axios.post(
-      `${baseURL}/authentication/refresh`,
+      `${import.meta.env.VITE_APP_BACKEND_URL}/api/authentication/refresh`,
       {},
       {
         headers: {
@@ -41,12 +41,12 @@ const useAxios = (props) => {
     );
 
     if (res.status === 200) {
-      localStorage.setItem("boomviber-auth", JSON.stringify(res.data));
+      localStorage.setItem("myanmarbeer-auth", JSON.stringify(res.data));
       setAuth(res.data);
       req.headers.Authorization = `Bearer ${res.data.access_token}`;
     } else {
       setAuth(null);
-      localStorage.removeItem("boomviber-auth");
+      localStorage.removeItem("myanmarbeer-auth");
       navigate("/login");
     }
     return req;

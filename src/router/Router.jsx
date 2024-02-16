@@ -9,16 +9,20 @@ import UserData from "../components/UserData";
 import SpinWheel from "../components/SpinWheel";
 import CanGame from "../components/CanGame";
 import LoginForm from "../components/LoginForm";
+import PrivateRoute from "../hocs/PrivateRoute";
 
 const AppRouter = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LoginForm />} />
-        <Route path="/data" element={<UserData />} />
-        <Route path="/game-select" element={<GameSelect />} />
-        <Route path="/can" element={<CanGame />} />
-        <Route path="/spin" element={<SpinWheel />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/data" element={<PrivateRoute component={UserData} />} />
+        <Route
+          path="/game-select"
+          element={<PrivateRoute component={GameSelect} />}
+        />
+        <Route path="/can" element={<PrivateRoute component={CanGame} />} />
+        <Route path="/spin" element={<PrivateRoute component={SpinWheel} />} />
         <Route path="*" element={<Navigate to="/game-select" replace />} />
       </Routes>
     </Router>

@@ -10,7 +10,7 @@ const GameSelect = () => {
           <img src="/assets/spintext.png" alt="spin text" />
         </div>
       </Link>
-      <Link to="data" state={{ nextRoute: "/can-game" }}>
+      <Link to="/data" state={{ nextRoute: "/can" }}>
         <div className="flex flex-col items-center space-y-10 hover:scale-105 transition duration-300">
           <img src="/assets/can.png" alt="can" />
           <img src="/assets/cantext.png" alt="can text" />
