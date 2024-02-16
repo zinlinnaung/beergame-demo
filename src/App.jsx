@@ -21,13 +21,13 @@ function App() {
             className="ml-auto -mt-5 md:-mt-10 z-20 relative w-20 md:w-auto"
           />
         </div>
-        <div className="flex flex-col md:flex-row items-center login w-full h-full justify-center">
+        <div className="flex flex-col z-50 md:flex-row items-center login w-full h-full justify-center">
           <AppRouter />
         </div>
         <img
           src="/assets/karawake.png"
           alt="karawake"
-          className="absolute right-0 bottom-0"
+          className="absolute right-0 bottom-0 z-0"
         />
       </main>
     </QueryClientProvider>
