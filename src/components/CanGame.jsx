@@ -1,6 +1,8 @@
 // import React, { useState } from "react";
 
+import { ArrowLeftIcon } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const CanGame = () => {
   const [selectedBottle, setSelectedBottle] = useState(0);
@@ -33,6 +35,7 @@ const CanGame = () => {
     transform: selectedBottle === bottle ? "scale(2)" : "scale(1)",
     width: selectedBottle === bottle ? "40%" : "50%",
     margin: "0 auto",
+    // display: "none"
   });
 
   console.log(isClicked);
@@ -81,6 +84,14 @@ const CanGame = () => {
                 </>
               )}
             </div>
+            <Link
+              to="/select-game"
+              className={`capitalize flex gap-x-2 text-white underline translate-y-40 ${
+                isBottleSelected ? "flex" : "none"
+              }`}
+            >
+              <ArrowLeftIcon /> Back to game selection
+            </Link>
           </div>
         ) : null
       )}

@@ -58,9 +58,9 @@ const LoginForm = () => {
   };
 
   const handleSubmit = (e) => {
-    // navigate("/game-select");
+    navigate("/game-select");
     e.preventDefault();
-    mutate(dataa);
+    // mutate(dataa);
   };
 
   return (
