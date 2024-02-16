@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { useToast } from "./ui/use-toast";
 import { FormContext } from "../context/FormContext";
+import Swal from "sweetalert2";
 
 const SpinWheel = () => {
   const navigate = useNavigate();
@@ -109,7 +110,7 @@ const SpinWheel = () => {
       }
     }
     // console.log(winningItem);
-    setData({ ...data, productId: winningItem.id });
+    // setData({ ...data, productId: winningItem?.id });
   };
 
   const sliceColors = [
@@ -128,9 +129,35 @@ const SpinWheel = () => {
 
   // console.log(winningItem);
 
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
+
   useEffect(() => {
-    console.log(data);
-  }, [data]);
+    setTimeout(() => {
+      if (winningItem) {
+        Swal.fire({
+          title: "Congratulations!",
+          text: winningItem.name,
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // mutate();
+            // window.location.reload();
+            navigate("/game-select");
+            setData({ ...data, productId: winningItem?.id });
+          } else if (result.isDismissed) {
+            // mutate();
+            // window.location.reload();
+            navigate("/game-select");
+            setData({ ...data, productId: winningItem?.id });
+          }
+        });
+        console.log(winningItem);
+      }
+    }, 6000);
+  }, [winningItem]);
 
   return (
     <div id="main">
