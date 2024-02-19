@@ -17,8 +17,9 @@ const SpinWheel = () => {
   const { data, setData } = useContext(FormContext);
 
   const [customer] = useRecoilState(customerAtom);
-  const [winningItem, setWinningItem] = useRecoilState(WiningAtom);
+  const [winningItem, setWinningItem] = useState(null);
   const [degreeToSpin, setDegreeToSpin] = useState(0);
+  const [spinAudio] = useState(new Audio("assets/spin.mp3"));
   const [winningItems, setWinningItems] = useState([
     {
       id: 1,
@@ -66,9 +67,16 @@ const SpinWheel = () => {
       isActive: true,
     },
   ]);
+  const resetAndPlayAudio = (audioElement) => {
+    audioElement.pause();
+    audioElement.currentTime = 0; // Reset to the beginning
+    audioElement.loop = false;
+    audioElement.play(); // Ensure looping is initially off
+  };
 
   const spinWheel = () => {
     queryClient.invalidateQueries("check_spin");
+    resetAndPlayAudio(spinAudio);
     setDegreeToSpin(3600);
 
     // Filter out prizes with quantity 0
@@ -156,7 +164,7 @@ const SpinWheel = () => {
         });
         console.log(winningItem);
       }
-    }, 6000);
+    }, 3000);
   }, [winningItem]);
 
   return (
