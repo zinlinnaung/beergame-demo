@@ -88,17 +88,17 @@ const CanGame = () => {
                     style={{
                       opacity: isClicked ? 1 : 0,
                     }}
-                    className="absolute top-3 left-1/2 -translate-x-1/2 flex items-center justify-center bg-white w-24 h-28 rounded-full transition-all duration-500 delay-200"
+                    className="absolute top-3 left-1/2 -translate-x-1/2 flex items-center justify-center bg-green-900/90 w-24 h-28 rounded-full transition-all duration-500 delay-200"
                   >
-                    <p className="text-xs">Thank you</p>
+                    <p className="text-xs text-white">Thank you</p>
                   </div>
                 </>
               )}
             </div>
             <Link
               to="/select-game"
-              className={`capitalize flex gap-x-2 text-white underline translate-y-40 ${
-                isBottleSelected ? "flex" : "hidden"
+              className={`capitalize flex gap-x-2 text-black font-bold text-lg items-center underline translate-y-40 ${
+                isBottleSelected ? "flex" : "none"
               }`}
             >
               <ArrowLeftIcon /> Back to game selection

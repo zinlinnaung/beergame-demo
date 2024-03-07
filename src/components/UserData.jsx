@@ -25,7 +25,7 @@ const UserData = () => {
             placeholder="Name"
             required
             onChange={handleOnChange}
-            className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
+            className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-slate-600"
           />
 
           <input
@@ -35,7 +35,7 @@ const UserData = () => {
             placeholder="Phone Number"
             required
             onChange={handleOnChange}
-            className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
+            className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-slate-600"
           />
 
           <button
