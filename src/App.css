@@ -1,15 +1,16 @@
 main {
-  border: 20px dotted transparent;
+  /* border: 20px dotted transparent;
   border-image: url("/assets/border.png") 30;
-  border-image-repeat: round;
-  background-image: url("/assets/backdrop.png");
-  background-size: 100% 100%;
+  border-image-repeat: round; */
+  background-image: url("/assets/background-img.jpg");
+  background-size: contain;
 }
 
 .game-text-bg {
   clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 90%);
 }
 
-::placeholder {
-  color: white !important;
+.spin-wheel-bg {
+  background-image: url("/assets/spin-img.jpg");
+  background-size: 100% 100%;
 }

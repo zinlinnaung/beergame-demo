@@ -57,8 +57,8 @@ const LoginForm = () => {
   };
 
   return (
-    <main className="relative bg-[#003F1E] bg-no-repeat bg-center min-h-screen flex justify-center items-center ">
-      <div className="absolute left-0 top-0 ">
+    <main className="relative bg-[#003F1E] bg-no-repeat bg-center min-h-screen flex justify-center items-center">
+      {/* <div className="absolute left-0 top-0 ">
         <div className="game-text-bg bg-[#FF9900]/80 md:p-[2rem_2rem_3rem_2rem] xl:p-[2rem_0rem_3rem_0rem] p-[1rem_2rem_2rem_1rem] ">
           <img
             src="/assets/game.png"
@@ -71,7 +71,7 @@ const LoginForm = () => {
           alt="logo"
           className="ml-auto -mt-5 md:-mt-10 z-20 relative w-20 md:w-auto"
         />
-      </div>
+      </div> */}
       <div className="flex flex-col z-50 md:flex-row items-center login w-full h-full justify-center">
         <div className="w-[46%]  mx-auto justify-center">
           <form onSubmit={handleSubmit} className="flex flex-col space-y-16">
@@ -81,17 +81,11 @@ const LoginForm = () => {
                 name="select1"
                 value={data.select1}
                 onChange={handleOnChange}
-                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg outline-none text-white"
+                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg outline-none text-slate-600 placeholder:text-black"
               >
-                <option value="" className="bg-gray-400">
-                  Select Option 1
-                </option>
-                <option value="Option 1" className="bg-gray-400">
-                  Option 1
-                </option>
-                <option value="Option 2" className="bg-gray-400">
-                  Option 2
-                </option>
+                <option value="">Select Option 1</option>
+                <option value="Option 1">Option 1</option>
+                <option value="Option 2">Option 2</option>
               </select>
 
               <select
@@ -99,17 +93,11 @@ const LoginForm = () => {
                 name="select2"
                 value={data.select2}
                 onChange={handleOnChange}
-                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
+                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-slate-600 placeholder:text-black"
               >
-                <option value="" className="bg-gray-400">
-                  Select Option 2
-                </option>
-                <option value="Option A" className="bg-gray-400">
-                  Option A
-                </option>
-                <option value="Option B" className="bg-gray-400">
-                  Option B
-                </option>
+                <option value="">Select Option 2</option>
+                <option value="Option A">Option A</option>
+                <option value="Option B">Option B</option>
               </select>
 
               <select
@@ -117,19 +105,14 @@ const LoginForm = () => {
                 name="select3"
                 value={data.select3}
                 onChange={(e) => setData({ ...data, outletId: e.target.value })}
-                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
+                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-slate-600 placeholder:text-black"
               >
-                <option value="Option A" className="bg-gray-400">
-                  Select Option 3
-                </option>
-                <option value="Option X" className="bg-gray-400">
-                  Option X
-                </option>
-                <option value="Option Y" className="bg-gray-400">
-                  Option Y
-                </option>
+                <option value="Option A">Select Option 3</option>
+                <option value="Option X">Option X</option>
+                <option value="Option Y">Option Y</option>
               </select>
             </div>
+
             <div className="flex flex-col space-y-4">
               <input
                 type="text"
@@ -139,7 +122,7 @@ const LoginForm = () => {
                 onChange={handleOnChange}
                 placeholder="Enter Sale Person ID Here"
                 required
-                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
+                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-slate-600 placeholder:text-slate-600"
               />
               <input
                 type="password"
@@ -149,7 +132,7 @@ const LoginForm = () => {
                 onChange={handleOnChange}
                 placeholder="Enter Password Here"
                 required
-                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
+                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-slate-600 placeholder:text-slate-600"
               />
 
               <button
@@ -163,11 +146,11 @@ const LoginForm = () => {
           </form>
         </div>
       </div>
-      <img
+      {/* <img
         src="/assets/karawake.png"
         alt="karawake"
         className="absolute right-0 bottom-0 z-0"
-      />
+      /> */}
     </main>
   );
 };

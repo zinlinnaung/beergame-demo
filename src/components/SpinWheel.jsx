@@ -173,11 +173,10 @@ const SpinWheel = () => {
               backgroundColor: "#000",
             }}
           >
-            {winningItems?.map((item, index) => (
+            {/* {winningItems?.map((item, index) => (
               <div
                 key={index}
                 style={{
-                  // backgroundImage: `url(${item.image})`,
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "left",
@@ -192,7 +191,6 @@ const SpinWheel = () => {
                   }deg)`,
                 }}
               >
-                {/* {console.log(item.photo)} */}
                 <img
                   src={item.photo}
                   alt="sidfidsi"
@@ -203,21 +201,29 @@ const SpinWheel = () => {
                     transform: "translate(-10%,-50%) rotate(-45deg)",
                     width: "30%",
                     objectFit: "contain",
-                    // display: !item.image && "none",
                   }}
                 />
               </div>
-            ))}
+            ))} */}
+
+            <img
+              src="assets/spin-img.png"
+              alt="spin image"
+              className="mx-auto"
+            />
 
             <div id="spin" onClick={spinWheel}>
               <img
                 src="/assets/spin-now.png"
                 alt="Spin Button"
-                style={{ width: "100%" }}
+                className="w-full"
               />
             </div>
           </div>
         </div>
+        {/* <div>
+          <img src="assets/spin-img.png" alt="spin image" className="mx-auto" />
+        </div> */}
       </div>
       <div style={{ marginTop: "5rem" }}>{/* <h2>Winner List</h2> */}</div>
     </div>
