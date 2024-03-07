@@ -14,14 +14,7 @@ const LoginForm = () => {
     sale_person_id: "",
     password: "",
   });
-  // const [data, setData] = useState({
-  //   select1: "",
-  //   select2: "",
-  //   select3: "",
-  //   select4: "",
-  //   saleId: "",
-  //   password: "",
-  // });
+
   const { data, setData } = useContext(FormContext);
   console.log(data);
 
@@ -65,12 +58,12 @@ const LoginForm = () => {
 
   return (
     <main className="relative bg-[#003F1E] bg-no-repeat bg-center min-h-screen flex justify-center items-center ">
-      <div className="absolute left-0 top-0 w-[40%]">
-        <div className="game-text-bg bg-[#FF9900]/80 md:p-[2rem_2rem_3rem_2rem] p-[1rem_2rem_2rem_1rem] ">
+      <div className="absolute left-0 top-0 ">
+        <div className="game-text-bg bg-[#FF9900]/80 md:p-[2rem_2rem_3rem_2rem] xl:p-[2rem_0rem_3rem_0rem] p-[1rem_2rem_2rem_1rem] ">
           <img
             src="/assets/game.png"
             alt="beer game logo"
-            className="md:w-[80%] w-full"
+            className="md:w-[80%] xl:w-[40%] w-full mx-auto"
           />
         </div>
         <img
