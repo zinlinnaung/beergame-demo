@@ -72,7 +72,7 @@ const LoginForm = () => {
 
   return (
     <main className="relative bg-[#003F1E] bg-no-repeat bg-center min-h-screen flex justify-center items-center ">
-      <div className="absolute left-0 top-0 ">
+      {/* <div className="absolute left-0 top-0 ">
         <div className="game-text-bg bg-[#FF9900]/80 md:p-[2rem_2rem_3rem_2rem] xl:p-[2rem_0rem_3rem_0rem] p-[1rem_2rem_2rem_1rem] ">
           <img
             src="/assets/game.png"
@@ -85,7 +85,7 @@ const LoginForm = () => {
           alt="logo"
           className="ml-auto -mt-5 md:-mt-10 z-20 relative w-20 md:w-auto"
         />
-      </div>
+      </div> */}
       <div className="flex flex-col z-50 md:flex-row items-center login w-full h-full justify-center">
         <div className="w-[46%]  mx-auto justify-center">
           <form onSubmit={handleSubmit} className="flex flex-col space-y-16">
@@ -96,7 +96,7 @@ const LoginForm = () => {
                 name="area"
                 value={data.area}
                 onChange={handleOnChange}
-                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg outline-none text-white"
+                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg outline-none text-black"
               >
                 {/* {area.map((data, index) => {
                   <option key={index} value={data}>
@@ -134,7 +134,7 @@ const LoginForm = () => {
                 name="state"
                 value={data.state}
                 onChange={handleOnChange}
-                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
+                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-black"
               >
                 <option
                   // disabled
@@ -160,7 +160,7 @@ const LoginForm = () => {
                 onChange={(e) =>
                   setData({ ...data, outletName: e.target.value })
                 }
-                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
+                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-black"
               >
                 <option
                   // disabled
@@ -188,7 +188,7 @@ const LoginForm = () => {
                 onChange={handleOnChange}
                 placeholder="Enter Sale Person ID Here"
                 required
-                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
+                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-black"
               />
               <input
                 type="password"
@@ -198,7 +198,7 @@ const LoginForm = () => {
                 onChange={handleOnChange}
                 placeholder="Enter Password Here"
                 required
-                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
+                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-black"
               />
 
               <button
