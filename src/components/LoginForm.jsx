@@ -111,7 +111,7 @@ const LoginForm = () => {
                   value=""
                   className="bg-gray-400"
                 >
-                  yway pr
+                  Area
                 </option>
                 {area?.map((item, index) => (
                   <option key={index} value={item} className="bg-gray-400">
