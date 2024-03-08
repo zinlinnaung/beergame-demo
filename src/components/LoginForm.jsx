@@ -6,6 +6,8 @@ import { FormContext } from "../context/FormContext";
 import authAtom from "../recoil/auth/auth.atom";
 import axios from "axios";
 import { useSetRecoilState } from "recoil";
+import stateCities from "../constants/StateCities.json";
+import outlet from "../constants/outlet.json";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -14,8 +16,19 @@ const LoginForm = () => {
     sale_person_id: "",
     password: "",
   });
-
+  // const [data, setData] = useState({
+  //   select1: "",
+  //   select2: "",
+  //   select3: "",
+  //   select4: "",
+  //   saleId: "",
+  //   password: "",
+  // });
   const { data, setData } = useContext(FormContext);
+  const area = Object.keys(stateCities);
+  const cities = stateCities[data.area];
+  const state = Object.keys(outlet);
+  const outletdata = outlet[data?.state];
   console.log(data);
 
   const { mutate } = useMutation(
@@ -55,10 +68,11 @@ const LoginForm = () => {
     e.preventDefault();
     // mutate(dataa);
   };
+  // console.log(stateCities);
 
   return (
-    <main className="relative bg-[#003F1E] bg-no-repeat bg-center min-h-screen flex justify-center items-center">
-      {/* <div className="absolute left-0 top-0 ">
+    <main className="relative bg-[#003F1E] bg-no-repeat bg-center min-h-screen flex justify-center items-center ">
+      <div className="absolute left-0 top-0 ">
         <div className="game-text-bg bg-[#FF9900]/80 md:p-[2rem_2rem_3rem_2rem] xl:p-[2rem_0rem_3rem_0rem] p-[1rem_2rem_2rem_1rem] ">
           <img
             src="/assets/game.png"
@@ -71,56 +85,100 @@ const LoginForm = () => {
           alt="logo"
           className="ml-auto -mt-5 md:-mt-10 z-20 relative w-20 md:w-auto"
         />
-      </div> */}
-      {/* <div className="absolute left-1/2 top-0 -translate-x-1/2">
-        <img src="/assets/text.jpg" alt="logo" className="" />
-        <img
-          src="/assets/myanmar.jpg"
-          alt="logo"
-          className="relative w-full h-[500px]"
-        />
-      </div> */}
+      </div>
       <div className="flex flex-col z-50 md:flex-row items-center login w-full h-full justify-center">
         <div className="w-[46%]  mx-auto justify-center">
           <form onSubmit={handleSubmit} className="flex flex-col space-y-16">
             <div className="flex flex-col space-y-4">
+              {/* <label htmlFor="area">Area</label> */}
               <select
-                id="select1"
-                name="select1"
-                value={data.select1}
+                id="area"
+                name="area"
+                value={data.area}
                 onChange={handleOnChange}
-                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg outline-none text-slate-600 placeholder:text-black"
+                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg outline-none text-white"
               >
-                <option value="">Select Option 1</option>
-                <option value="Option 1">Option 1</option>
-                <option value="Option 2">Option 2</option>
+                {/* {area.map((data, index) => {
+                  <option key={index} value={data}>
+                    {data}
+                  </option>;
+                })} */}
+                <option
+                  // disabled
+                  defaultValue=""
+                  hidden
+                  // selected
+                  value=""
+                  className="bg-gray-400"
+                >
+                  yway pr
+                </option>
+                {area?.map((item, index) => (
+                  <option key={index} value={item} className="bg-gray-400">
+                    {item}
+                  </option>
+                ))}
+                {/* <option value="" className="bg-gray-400">
+                  {area[0]}
+                </option>
+                <option value="Option A" className="bg-gray-400">
+                  {area[1]}
+                </option>
+                <option value="Option B" className="bg-gray-400">
+                  {area[2]}
+                </option> */}
               </select>
 
               <select
-                id="select2"
-                name="select2"
-                value={data.select2}
+                id="state"
+                name="state"
+                value={data.state}
                 onChange={handleOnChange}
-                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-slate-600 placeholder:text-black"
+                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
               >
-                <option value="">Select Option 2</option>
-                <option value="Option A">Option A</option>
-                <option value="Option B">Option B</option>
+                <option
+                  // disabled
+                  defaultValue=""
+                  hidden
+                  // selected
+                  value=""
+                  className="bg-gray-400"
+                >
+                  State
+                </option>
+                {cities?.map((item, index) => (
+                  <option key={index} value={item} className="bg-gray-400">
+                    {item}
+                  </option>
+                ))}
               </select>
 
               <select
                 id="select3"
                 name="select3"
                 value={data.select3}
-                onChange={(e) => setData({ ...data, outletId: e.target.value })}
-                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-slate-600 placeholder:text-black"
+                onChange={(e) =>
+                  setData({ ...data, outletName: e.target.value })
+                }
+                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
               >
-                <option value="Option A">Select Option 3</option>
-                <option value="Option X">Option X</option>
-                <option value="Option Y">Option Y</option>
+                <option
+                  // disabled
+                  defaultValue=""
+                  hidden
+                  // selected
+                  value=""
+                  className="bg-gray-400"
+                >
+                  Outlet
+                </option>
+                {outletdata?.map((item, index) => (
+                  <option key={index} value={item} className="bg-gray-400">
+                    {item}
+                  </option>
+                ))}
               </select>
             </div>
-
             <div className="flex flex-col space-y-4">
               <input
                 type="text"
@@ -130,7 +188,7 @@ const LoginForm = () => {
                 onChange={handleOnChange}
                 placeholder="Enter Sale Person ID Here"
                 required
-                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-slate-600 placeholder:text-slate-600"
+                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
               />
               <input
                 type="password"
@@ -140,7 +198,7 @@ const LoginForm = () => {
                 onChange={handleOnChange}
                 placeholder="Enter Password Here"
                 required
-                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-slate-600 placeholder:text-slate-600"
+                className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-white"
               />
 
               <button

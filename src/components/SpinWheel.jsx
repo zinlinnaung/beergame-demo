@@ -17,12 +17,13 @@ const SpinWheel = () => {
   const { data, setData } = useContext(FormContext);
 
   const [customer] = useRecoilState(customerAtom);
-  const [winningItem, setWinningItem] = useRecoilState(WiningAtom);
+  const [winningItem, setWinningItem] = useState(null);
   const [degreeToSpin, setDegreeToSpin] = useState(0);
+  const [spinAudio] = useState(new Audio("assets/spin.mp3"));
   const [winningItems, setWinningItems] = useState([
     {
       id: 1,
-      name: "Beer",
+      name: "Earphone",
       photo: "/assets/earphone.jpg",
       quantity: 1,
       winningRatio: 0.5,
@@ -31,7 +32,7 @@ const SpinWheel = () => {
     },
     {
       id: 2,
-      name: "Bell Pen",
+      name: "Airpod",
       photo: "/assets/iphone.jpg",
       quantity: 1,
       winningRatio: 0.2,
@@ -40,7 +41,7 @@ const SpinWheel = () => {
     },
     {
       id: 3,
-      name: "Trifold",
+      name: "iwatch",
       photo: "/assets/watch.jpg",
       quantity: 1,
       winningRatio: 0.16,
@@ -49,7 +50,7 @@ const SpinWheel = () => {
     },
     {
       id: 4,
-      name: "key chain",
+      name: "Voucher",
       photo: "/assets/vocture.jpg",
       quantity: 1,
       winningRatio: 0.7,
@@ -58,7 +59,7 @@ const SpinWheel = () => {
     },
     {
       id: 5,
-      name: "T - Shirt",
+      name: "thankyou",
       photo: "/assets/thankyou.jpg",
       quantity: 1, // Corrected quantity from 0 to 1
       winningRatio: 0.7,
@@ -66,9 +67,16 @@ const SpinWheel = () => {
       isActive: true,
     },
   ]);
+  const resetAndPlayAudio = (audioElement) => {
+    audioElement.pause();
+    audioElement.currentTime = 0; // Reset to the beginning
+    audioElement.loop = false;
+    audioElement.play(); // Ensure looping is initially off
+  };
 
   const spinWheel = () => {
     queryClient.invalidateQueries("check_spin");
+    resetAndPlayAudio(spinAudio);
     setDegreeToSpin(3600);
 
     // Filter out prizes with quantity 0
@@ -156,7 +164,7 @@ const SpinWheel = () => {
         });
         console.log(winningItem);
       }
-    }, 6000);
+    }, 3000);
   }, [winningItem]);
 
   return (

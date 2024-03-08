@@ -7,7 +7,7 @@
   margin: 0 auto;
   width: 100%;
   /* height: auto; */
-  border: '3px solid blue'
+  border: "3px solid blue";
 }
 #div_pointer {
   margin: auto;
@@ -41,7 +41,7 @@
   -moz-border-radius: 50%;
   border-radius: 50%;
   overflow: hidden;
-  transition: all 5s ease-in-out;
+  transition: all 2s ease-in-out;
 }
 
 #spin {
@@ -101,7 +101,6 @@
   margin-top: 5rem;
   margin: 5rem auto;
 }
-
 
 .inner {
   position: relative;

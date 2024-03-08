@@ -3,15 +3,26 @@
 import { ArrowLeftIcon } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import bottleSound from "/assets/opencan.mp3";
+import lidSound from "/assets/lidsong.mp3";
 
 const CanGame = () => {
   const [selectedBottle, setSelectedBottle] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
+  const [islidClicked, setIslidClicked] = useState(false);
   const [isBottleSelected, setIsBottleSelected] = useState(false);
+  const [playSound, setPlaySound] = useState(false);
 
   const handleClick = (bottle) => {
     setSelectedBottle(bottle);
     setIsBottleSelected(true);
+    setPlaySound(true);
+    setTimeout(() => setPlaySound(false), 1000);
+  };
+
+  const handlelipClick = () => {
+    setIsClicked(true);
+    setIslidClicked(true);
   };
 
   const bottleContainerStyles = {
@@ -65,11 +76,11 @@ const CanGame = () => {
                     className="absolute top-[-18px] left-1/2 -translate-x-1/2 w-[30%] rounded-full z-[1]"
                     style={{
                       // scale: isClicked ? 1.5 : 1,
-                      transform: isClicked
+                      transform: islidClicked
                         ? "scale(2) translateX(-30%)"
                         : "scale(1) translateX(-50%)",
                     }}
-                    onClick={() => setIsClicked(true)}
+                    onClick={() => handlelipClick()}
                   >
                     <img src="/assets/pinlid.png" alt="" />
                   </div>
@@ -94,6 +105,15 @@ const CanGame = () => {
             </Link>
           </div>
         ) : null
+      )}
+      {playSound && (
+        <audio autoPlay>
+          <source
+            src={islidClicked ? bottleSound : lidSound}
+            type="audio/mpeg"
+          />
+          Your browser does not support the audio element.
+        </audio>
       )}
     </div>
   );
