@@ -72,6 +72,14 @@ const LoginForm = () => {
           className="ml-auto -mt-5 md:-mt-10 z-20 relative w-20 md:w-auto"
         />
       </div> */}
+      {/* <div className="absolute left-1/2 top-0 -translate-x-1/2">
+        <img src="/assets/text.jpg" alt="logo" className="" />
+        <img
+          src="/assets/myanmar.jpg"
+          alt="logo"
+          className="relative w-full h-[500px]"
+        />
+      </div> */}
       <div className="flex flex-col z-50 md:flex-row items-center login w-full h-full justify-center">
         <div className="w-[46%]  mx-auto justify-center">
           <form onSubmit={handleSubmit} className="flex flex-col space-y-16">
@@ -146,11 +154,11 @@ const LoginForm = () => {
           </form>
         </div>
       </div>
-      {/* <img
+      <img
         src="/assets/karawake.png"
         alt="karawake"
         className="absolute right-0 bottom-0 z-0"
-      /> */}
+      />
     </main>
   );
 };
