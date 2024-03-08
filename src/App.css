@@ -4,6 +4,8 @@ main {
   border-image-repeat: round; */
   background-image: url("/assets/background-img.jpg");
   background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: right top;
 }
 
 .game-text-bg {
