@@ -2,8 +2,9 @@ main {
   /* border: 20px dotted transparent;
   border-image: url("/assets/border.png") 30;
   border-image-repeat: round; */
-  background-image: url("/assets/background-img.jpg");
-  background-size: 100% 100%;
+  background-image: url("/assets/line.png");
+  background-color: #8CBE3B;
+  background-size:100%;
   background-repeat: no-repeat;
   background-position: right top;
 }

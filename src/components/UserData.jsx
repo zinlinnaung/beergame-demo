@@ -27,9 +27,8 @@ const UserData = () => {
             onChange={handleOnChange}
             className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg w-full outline-none text-slate-600"
           />
-
           <input
-            type="text"
+            type="number"
             id="phone"
             name="phone"
             placeholder="Phone Number"

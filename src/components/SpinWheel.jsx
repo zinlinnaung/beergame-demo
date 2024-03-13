@@ -1,8 +1,7 @@
 import useAxios from "../hooks/useAxios";
 import customerAtom from "../recoil/spin/customer.atom";
-import WiningAtom from "../recoil/spin/wining.atom";
 import { useContext, useEffect, useState } from "react";
-import { useMutation, useQuery, useQueryClient } from "react-query";
+import {  useQueryClient } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { useToast } from "./ui/use-toast";
@@ -117,8 +116,6 @@ const SpinWheel = () => {
         console.log(range.selectedItem);
       }
     }
-    // console.log(winningItem);
-    // setData({ ...data, productId: winningItem?.id });
   };
 
   const sliceColors = [
@@ -134,12 +131,6 @@ const SpinWheel = () => {
     "#9B59B6",
     "#3498DB",
   ];
-
-  // console.log(winningItem);
-
-  // useEffect(() => {
-  //   console.log(data);
-  // }, [data]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -181,39 +172,6 @@ const SpinWheel = () => {
               backgroundColor: "#000",
             }}
           >
-            {/* {winningItems?.map((item, index) => (
-              <div
-                key={index}
-                style={{
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "left",
-                  width: "50%",
-                  height: "50%",
-                  position: "absolute",
-                  transformOrigin: "bottom right",
-                  clipPath: "polygon(0 0, 80% 0, 100% 100%, 0 88%)",
-                  backgroundColor: sliceColors[index],
-                  transform: `rotate(${
-                    (360 / winningItems?.length) * index
-                  }deg)`,
-                }}
-              >
-                <img
-                  src={item.photo}
-                  alt="sidfidsi"
-                  style={{
-                    position: "absolute",
-                    left: "40%",
-                    top: "55%",
-                    transform: "translate(-10%,-50%) rotate(-45deg)",
-                    width: "30%",
-                    objectFit: "contain",
-                  }}
-                />
-              </div>
-            ))} */}
-
             <img
               src="assets/spin-img.png"
               alt="spin image"
@@ -229,9 +187,6 @@ const SpinWheel = () => {
             </div>
           </div>
         </div>
-        {/* <div>
-          <img src="assets/spin-img.png" alt="spin image" className="mx-auto" />
-        </div> */}
       </div>
       <div style={{ marginTop: "5rem" }}>{/* <h2>Winner List</h2> */}</div>
     </div>
