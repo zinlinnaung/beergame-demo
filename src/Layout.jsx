@@ -3,28 +3,39 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <main className="relative bg-[#003F1E] bg-no-repeat bg-center min-h-screen flex justify-center items-center ">
-      {/* <div className="absolute left-0 top-0 w-[40%]">
-        <div className="game-text-bg bg-[#FF9900]/80 md:p-[2rem_2rem_3rem_2rem] p-[1rem_2rem_2rem_1rem] ">
-          <img
-            src="/assets/game.png"
-            alt="beer game logo"
-            className="md:w-[80%] w-full"
-          />
-        </div>
-        <img
-          src="/assets/logo.png"
-          alt="logo"
-          className="ml-auto -mt-5 md:-mt-10 z-20 relative w-20 md:w-auto"
-        />
-      </div> */}
+    <main className="relative bg-[#8CBE3B]  bg-no-repeat bg-center  min-h-screen flex justify-center items-center ">
+      <img
+        src="/assets/ownLet2.png"
+        alt="ownLet"
+        className="md:w-[80%] xl:w-[40%] w-full mx-auto absolute left-0 top-0 "
+      />
+      <img
+        src="/assets/ownLet1.png"
+        alt="ownLet"
+        className="md:w-[80%] xl:w-[40%] w-full mx-auto absolute right-0 top-0"
+      />
+      <img
+        src="/assets/login-logo.png"
+        alt="ownLet"
+        className="md:w-[70%] xl:w-[40%] w-full mx-auto absolute  top-2 left-[13rem]"
+      />
+      <img
+        src="/assets/campaign-logo.png"
+        alt="ownLet"
+        className="md:w-[50%] xl:w-[40%] w-full mx-auto absolute left-[19rem] top-[19rem]"
+      />
       <div className="flex flex-col z-50 md:flex-row items-center login w-full h-full justify-center">
         <Outlet />
       </div>
       <img
-        src="/assets/karawake.png"
+        src="/assets/hinthar.png"
         alt="karawake"
         className="absolute right-0 bottom-0 z-0"
+      />
+       <img
+        src="/assets/water-splash.png"
+        alt="water-splash"
+        className="absolute left-0 bottom-0 z-0"
       />
     </main>
   );
