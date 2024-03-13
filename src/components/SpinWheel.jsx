@@ -155,7 +155,7 @@ const SpinWheel = () => {
         });
         console.log(winningItem);
       }
-    }, 3000);
+    }, 2000);
   }, [winningItem]);
 
   return (
