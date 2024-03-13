@@ -17,12 +17,12 @@ const Layout = () => {
       <img
         src="/assets/login-logo.png"
         alt="ownLet"
-        className="md:w-[70%] xl:w-[40%] w-full mx-auto absolute  top-2 left-[13rem]"
+        className="md:w-[70%] xl:w-[40%] w-full mx-auto absolute top-2 md:left-[10rem] lg:left-[13rem]"
       />
       <img
         src="/assets/campaign-logo.png"
         alt="ownLet"
-        className="md:w-[50%] xl:w-[40%] w-full mx-auto absolute left-[19rem] top-[19rem]"
+        className="md:w-[50%] xl:w-[40%] w-full mx-auto absolute left-[1rem] md:top-[15rem] lg:top-[19rem]"
       />
       <div className="flex flex-col z-50 md:flex-row items-center login w-full h-full justify-center">
         <Outlet />

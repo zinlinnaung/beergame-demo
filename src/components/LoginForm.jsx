@@ -85,12 +85,12 @@ const LoginForm = () => {
       <img
         src="/assets/login-logo.png"
         alt="ownLet"
-        className="md:w-[70%] xl:w-[40%] w-full mx-auto absolute  top-2 left-[13rem]"
+        className="md:w-[70%] xl:w-[40%] w-full mx-auto absolute  top-2 md:left-[10rem] lg:left-[13rem]"
       />
       <img
         src="/assets/campaign-logo.png"
         alt="ownLet"
-        className="md:w-[50%] xl:w-[40%] w-full mx-auto absolute left-[1rem] top-[19rem]"
+        className="md:w-[50%] xl:w-[40%] w-full mx-auto absolute left-[1rem] md:top-[12rem] lg:top-[19rem]"
       />
 
       <div className="flex flex-col z-50 md:flex-row items-center login w-full h-full justify-center">
@@ -105,7 +105,6 @@ const LoginForm = () => {
                 onChange={handleOnChange}
                 className="border-white border-2 p-2 bg-[rgba(255,255,255,0.4)] rounded-lg outline-none text-black"
               >
-
                 <option
                   // disabled
                   defaultValue=""
@@ -121,7 +120,6 @@ const LoginForm = () => {
                     {item}
                   </option>
                 ))}
-        
               </select>
 
               <select
