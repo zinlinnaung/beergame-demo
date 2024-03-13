@@ -1,7 +1,7 @@
 import useAxios from "../hooks/useAxios";
 import customerAtom from "../recoil/spin/customer.atom";
 import { useContext, useEffect, useState } from "react";
-import {  useQueryClient } from "react-query";
+import { useQueryClient } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { useToast } from "./ui/use-toast";
@@ -22,8 +22,7 @@ const SpinWheel = () => {
   const [winningItems, setWinningItems] = useState([
     {
       id: 1,
-      name: "Earphone",
-      photo: "/assets/earphone.jpg",
+      name: "Thin Kyan Mont Phoe 2000 Ks",
       quantity: 1,
       winningRatio: 0.5,
       winningMessage: "IPhone ",
@@ -31,8 +30,7 @@ const SpinWheel = () => {
     },
     {
       id: 2,
-      name: "Airpod",
-      photo: "/assets/iphone.jpg",
+      name: "MB T-Shirt",
       quantity: 1,
       winningRatio: 0.2,
       winningMessage: "Airpod",
@@ -40,8 +38,7 @@ const SpinWheel = () => {
     },
     {
       id: 3,
-      name: "iwatch",
-      photo: "/assets/watch.jpg",
+      name: "Thin Kyan Mont Phoe 1000 Ks",
       quantity: 1,
       winningRatio: 0.16,
       winningMessage: "iWatch",
@@ -49,8 +46,7 @@ const SpinWheel = () => {
     },
     {
       id: 4,
-      name: "Voucher",
-      photo: "/assets/vocture.jpg",
+      name: "Thin Kyan Mont Phoe 500 Ks",
       quantity: 1,
       winningRatio: 0.7,
       winningMessage: "Capital Gift Voucher",
@@ -58,8 +54,15 @@ const SpinWheel = () => {
     },
     {
       id: 5,
+      name: "MB Towel L",
+      quantity: 1, // Corrected quantity from 0 to 1
+      winningRatio: 0.7,
+      winningMessage: "G & G Gift Voucher",
+      isActive: true,
+    },
+    {
+      id: 6,
       name: "thankyou",
-      photo: "/assets/thankyou.jpg",
       quantity: 1, // Corrected quantity from 0 to 1
       winningRatio: 0.7,
       winningMessage: "G & G Gift Voucher",
@@ -155,7 +158,7 @@ const SpinWheel = () => {
         });
         console.log(winningItem);
       }
-    }, 3000);
+    }, 2000);
   }, [winningItem]);
 
   return (
@@ -180,7 +183,7 @@ const SpinWheel = () => {
 
             <div id="spin" onClick={spinWheel}>
               <img
-                src="/assets/spin-now.png"
+                src="/assets/spin-btn.png"
                 alt="Spin Button"
                 className="w-full"
               />
